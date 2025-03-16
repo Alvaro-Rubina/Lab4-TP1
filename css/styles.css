@@ -1,0 +1,11 @@
+:root {
+    --primary-font: 'Kanit', 'Noto Sans JP', sans-serif;
+    --color-btn: #0d9b25;
+    --color-btn-hover: #22dd41;
+    --color-border-input: #686868;
+    --color-background: #e7d0bb;
+}
+
+* {
+    font-family: var(--primary-font);
+}
