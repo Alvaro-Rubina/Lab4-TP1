@@ -1,0 +1,75 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5vh;
+  margin-bottom: 10vh;
+}
+
+.clients-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 10vh;
+  gap: 1vw;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  gap: 5vh;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid var(--color-border-input);
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle;
+  max-width: 150px;
+  word-wrap: break-word;
+}
+
+.table td button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.input {
+  height: 5vh;
+  width: 30%;
+}
+
+.btn {
+  height: 5vh;
+  width: auto;
+  padding: 15px;
+}
+
+.btn-unblock {
+  background-color: var(--color-btn-alter);
+}
+
+.btn-unblock:hover {
+  background-color: var(--color-btn-alter-hover);
+}
