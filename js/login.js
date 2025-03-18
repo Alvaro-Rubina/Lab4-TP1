@@ -20,6 +20,7 @@ async function autenticarUsuario(event) {
         switch (respuesta) {
             case "OK":
                 alert(mensaje)
+                window.location.href = "lista.html"
                 break;
             case "ERROR":
                 alert(mensaje)
