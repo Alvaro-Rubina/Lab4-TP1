@@ -4,7 +4,7 @@ header {
   align-items: center;
   justify-content: center;
   margin-top: 5vh;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
 }
 
 .clients-container {
@@ -66,10 +66,10 @@ header {
   padding: 15px;
 }
 
-.btn-unblock {
+.btn-block {
   background-color: var(--color-btn-alter);
 }
 
-.btn-unblock:hover {
+.btn-block:hover {
   background-color: var(--color-btn-alter-hover);
 }
