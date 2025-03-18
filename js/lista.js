@@ -1,10 +1,15 @@
 document.addEventListener("DOMContentLoaded", traerRegistros);
-document.querySelector("#btn-search", buscarPorNombre).addEventListener("click", buscarPorNombre);
+document.querySelector("#btn-search", buscarPorUsuario).addEventListener("click", buscarPorUsuario);
 
 async function traerRegistros() {
     try {
-        const response = await fetch("http://181.111.166.250:8081/tp/lista.php?action=BUSCAR");
-        const data = await response.json();
+        const respuesta = await fetch("http://181.111.166.250:8081/tp/lista.php?action=BUSCAR");
+        const data = await respuesta.json();
+
+        if (data.length === 0) {
+            console.log('No hay registros para mostrar');
+            return;
+        }
 
         llenarTabla(data);
         
@@ -13,13 +18,17 @@ async function traerRegistros() {
     }    
 }
 
-async function buscarPorNombre(event) {
+async function buscarPorUsuario(event) {
     event.preventDefault();
-    let nombre = document.getElementById("input-search").value;
+    let usuario = document.getElementById("input-search").value;
 
     try {
-        const response = await fetch(`http://181.111.166.250:8081/tp/lista.php?action=BUSCAR&usuario=${nombre}`);
-        const data = await response.json();
+        const respuesta = await fetch(`http://181.111.166.250:8081/tp/lista.php?action=BUSCAR&usuario=${usuario}`);
+        const data = await respuesta.json();
+
+        if (data.length === 0) {
+            alert(`No hay registros que coincidan con la busqueda (${usuario})`);
+        }
 
         llenarTabla(data);
         
@@ -31,11 +40,6 @@ async function buscarPorNombre(event) {
 async function llenarTabla(data) {
     const tbody = document.querySelector("table.table tbody");
     tbody.innerHTML = "";
-
-    if(data.length === 0) {
-        console.log("No se encontraron registros");
-        return;
-    }
 
     data.forEach(element => {
         const row = document.createElement("tr");
