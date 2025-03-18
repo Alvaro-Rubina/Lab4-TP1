@@ -79,11 +79,18 @@ async function bloquearUsuario(event) {
     const fila = boton.closest("tr");
     const id = fila.querySelector("td").textContent;
 
+    if (fila.querySelector(".bloqueado").textContent === 'Y') {
+        return;
+    }
+
     try {
         const respuesta = await fetch(`http://181.111.166.250:8081/tp/lista.php?action=BLOQUEAR&idUser=${id}&estado=Y`)
         if (respuesta.ok) {
-            // llamo de vuelta para reflejar los cambios
-            await traerRegistros();
+            // al realizar la consulta se actualiza el valor de bloqueado en la bd pero no se refleja en la tabla hasta que
+            // vuelva a traer los registros, por eso actualizo el campo manualmente
+            fila.classList.remove('green-row');
+            fila.classList.add('red-row');
+            fila.querySelector(".bloqueado").textContent = 'Y';
             
         } else {
             console.error('Hubo un error al bloquear el usuario');
@@ -102,11 +109,18 @@ async function desbloquearUsuario(event) {
     const fila = boton.closest("tr");
     const id = fila.querySelector("td").textContent;
 
+    if (fila.querySelector(".bloqueado").textContent === 'N') {
+        return;
+    }
+
     try {
         const respuesta = await fetch(`http://181.111.166.250:8081/tp/lista.php?action=BLOQUEAR&idUser=${id}&estado=N`);
         if (respuesta.ok) {
-            // llamo de vuelta para reflejar los cambios
-            await traerRegistros();
+            // al realizar la consulta se actualiza el valor de bloqueado en la bd pero no se refleja en la tabla hasta que
+            // vuelva a traer los registros, por eso actualizo el campo manualmente
+            fila.classList.remove('red-row');
+            fila.classList.add('green-row');
+            fila.querySelector(".bloqueado").textContent = 'N';
 
         } else {
             console.error('Hubo un error al desbloquear el usuario');
