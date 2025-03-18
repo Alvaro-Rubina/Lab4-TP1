@@ -78,8 +78,9 @@ async function bloquearUsuario(event) {
     const boton = event.target;
     const fila = boton.closest("tr");
     const id = fila.querySelector("td").textContent;
+    const estadoActual = fila.children[2].textContent;
 
-    if (fila.querySelector(".bloqueado").textContent === 'Y') {
+    if (estadoActual === 'Y') {
         return;
     }
 
@@ -90,7 +91,7 @@ async function bloquearUsuario(event) {
             // vuelva a traer los registros, por eso actualizo el campo manualmente
             fila.classList.remove('green-row');
             fila.classList.add('red-row');
-            fila.querySelector(".bloqueado").textContent = 'Y';
+            fila.children[2].textContent = 'Y';
             
         } else {
             console.error('Hubo un error al bloquear el usuario');
@@ -108,8 +109,9 @@ async function desbloquearUsuario(event) {
     const boton = event.target;
     const fila = boton.closest("tr");
     const id = fila.querySelector("td").textContent;
+    const estadoActual = fila.children[2].textContent;
 
-    if (fila.querySelector(".bloqueado").textContent === 'N') {
+    if (estadoActual === 'N') {
         return;
     }
 
@@ -120,7 +122,7 @@ async function desbloquearUsuario(event) {
             // vuelva a traer los registros, por eso actualizo el campo manualmente
             fila.classList.remove('red-row');
             fila.classList.add('green-row');
-            fila.querySelector(".bloqueado").textContent = 'N';
+            fila.children[2].textContent = 'N';
 
         } else {
             console.error('Hubo un error al desbloquear el usuario');
