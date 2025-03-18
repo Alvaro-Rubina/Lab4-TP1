@@ -37,6 +37,15 @@ header {
 .table {
   width: 100%;
   border-collapse: collapse;
+  background-color: white;
+}
+
+.green-row {
+  background-color: var(--color-green);
+}
+
+.red-row {
+  background-color: var(--color-red);
 }
 
 .table th, .table td {
