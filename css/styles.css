@@ -3,9 +3,11 @@
   --color-btn: #0d9b25;
   --color-btn-hover: #22dd41;
   --color-border-input: #686868;
-  --color-background: #e7d0bb;
+  --color-background: #e1f5c4;
   --color-btn-alter: red;
   --color-btn-alter-hover: #db5757;
+  --color-green: #ade9a1;
+  --color-red: #f7b7b7;
 }
 
 * {
